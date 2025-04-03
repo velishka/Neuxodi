@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Айлн ❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff758c, #ff7eb3);
+            animation: bg-animation 10s infinite alternate;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        @keyframes bg-animation {
+            0% { background: linear-gradient(45deg, #ff758c, #ff7eb3); }
+            100% { background: linear-gradient(45deg, #ff7eb3, #ff758c); }
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            color: #ff758c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Айлн, ты самая красивая! ❤️</h1>
+    <button class="btn" onclick="toggleMusic()">🎵 Включить/Выключить музыку</button>
+    <audio id="music" loop>
+        <source src="https://dl.dropboxusercontent.com/scl/fi/your_audio_file.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+</div>
+
+<script>
+    let audio = document.getElementById("music");
+
+    function toggleMusic() {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+
+    // Автозапуск музыки при загрузке страницы
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(() => { audio.play().catch(err => console.log("Автовоспроизведение отключено")); }, 1000);
+    });
+</script>
+
+</body>
+</html>
